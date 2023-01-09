@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>SentiSense</title>
+  <!-- link to Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- link to custom CSS file -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">SentiSense</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <!-- "Home" section -->
+          <li class="nav-item active">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <!-- "About" section -->
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <!-- "Contact" section -->
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <!-- "Login" section -->
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Modal Wrapper -->
+<div class="modal-wrapper">
+        <!-- Modal -->
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Log in</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!-- login form -->
+                <form>
+                  <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" class="form-control" id="loginUsername" placeholder="Enter username">
+                  </div>
+                  <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
+                  </div>
+                  <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary">Log in</button>
+      <br>
+      <p>Don't have an account? <a href="#" data-toggle="modal" data-target="#signupModal">Sign up</a></p>
+    </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signup Modal -->
+      <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="signupModalLabel">Sign up</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- signup form -->
+              <form>
+                <div class="form-group">
+                  <label for="signupUsername">Username</label>
+                  <input type="text" class="form-control" id="signupUsername" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                  <label for="signupEmail">Email</label>
+                  <input type="email" class="form-control" id="signupEmail" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="signupPassword">Password</label>
+                  <input type="password" class="form-control" id="signupPassword" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                  <label for="signupPasswordConfirm">Confirm Password</label>
+                  <input type="password" class="form-control" id="signupPasswordConfirm" placeholder="Confirm password">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- "Home" section -->
+  <div class="container-fluid bg-light py-5" id = "home">
+    <div class="container text-dark">
+      <h1 class="display-4">Welcome to the <em style = "color: #1abc9c">SentiSense</em></h1>
+      <p class="lead">SentiSense is a sentiment analysis tool which ses machine learning algorithms to classify the sentiment of text data</p>
+        <blockquote cite="http://">
+          <p>"Our project aims to develop a sentiment analysis tool that can help mental
+health professionals more effectively analyze and understand the sentiment
+of their clients, enabling them to provide better care and support."</p>
+        </blockquote>
+      <!-- "Try!" button -->
+      <a href="#main" class="btn btn-primary btn-lg">Try!</a>
+    </div>
+  </div>
+
+  <!-- "About" section -->
+  <!-- "About" section -->
+  <div class="container-fluid bg-dark py-5 text-light about-section" id = "about">
+    <div class="container">
+      <h2 class="text-green">About</h2>
+      <p class = "text-light">Sentiment analysis is the process of using natural
+        language processing and machine learning techniques to identify and extract
+        subjective information from text data. In this process we identify and extract
+        subjective information from text data, such as the sentiment expressed in a
+        piece of text (e.g. positive, negative, neutral).
+</p>
+    </div>
+  </div>
+
+
+  <!-- "Main" section -->
+  <div class="container-fluid py-5" id="main">
+    <div class="container">
+      <h2 class="text-dark mb-5">Enter your text below:</h2>
+      <form >
+  <!-- file input field -->
+  <div class="form-group">
+    <input type="file" accept=".txt" id="input-file" placeholder="Choose text file">
+  </div>
+  <!-- submit button -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    </div>
+  </div>
+  <!-- "Contact" section -->
+  <div id="contact" class="container mt-5 container-fluid bg-dark py-5 text-light contact-section">
+    <div class="row">
+      <!-- project supervisor -->
+      <div class="col-md-4 mx-auto">
+        <div class="card mb-3 border-0 h-100">
+          <img src="supervisor.jpg" alt="Photo of Supervisor" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Project Supervisor</h5>
+            <p class="card-text">Name</p>
+            <p class="card-text">Email</p>
+          </div>
+        </div>
+      </div>
+      <!-- reviewer -->
+      <div class="col-md-4 mx-auto">
+        <div class="card mb-3 border-0 h-100">
+          <img src="reviewer.jpg" alt="Photo of Reviewer" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Reviewer</h5>
+            <p class="card-text">Name</p>
+            <p class="card-text">Email</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- team members -->
+    <h3>Team Members</h3>
+    <div class="row">
+      <!-- team member 1 -->
+      <div class="col-md-4">
+        <p>Name 1: Member 1</p>
+      </div>
+      <!-- team member 2 -->
+      <div class="col-md-4">
+        <p>Name 2: Member 2</p>
+      </div>
+      <!-- team member 3 -->
+      <div class="col-md-4">
+        <p>Name 3: Member 3</p>
+      </div>
+      <!-- team member 4 -->
+      <div class="col-md-4">
+        <p>Name 4: Member 4</p>
+      </div>
+      <!-- team member 5 -->
+      <div class="col-md-4">
+        <p>Name 4: Member 5</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <!-- link to jQuery and Bootstrap JavaScript -->
+    <script type="text/javascript" src ="static/index.js">
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+  </html>
+
