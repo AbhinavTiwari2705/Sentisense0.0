@@ -1,0 +1,409 @@
+body {
+  color: #03255e;
+  background-color: #ffffff;
+}
+
+/* Change the color of the navigation bar to #2b6777 */
+.navbar {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+  background: transparent;
+}
+
+/* Change the color of the navigation links to #ffffff */
+.navbar a {
+  color: #062f86;
+  
+}
+
+/* Change the color of the active link to #52ab98 */
+.navbar .nav-item.active a {
+  color: #377ca6;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#home h1,p{
+  padding-left: 10px;
+}
+h1 {
+  font-family: 'Crimson Text', serif;
+
+}
+
+
+/* Add a background color of #f2f2f2 to the jumbotron */
+.jumbotron{
+  background-color: #29a2c4;
+}
+
+.btn-primary{
+  background-color: #0b4978;
+  border-color: #0b4978;
+}
+.btn-outline-primary{
+  border-color: #0b4978;
+  color:#0b4978;
+}
+.btn-primary:hover{
+  background-color: #03255e;
+  border-color: #03255e;
+}
+.btn-outline-primary:hover{
+  background-color: #03255e;
+  border-color: #03255e;
+}
+/* Remove the shadow effect from the container */
+.container {
+  padding: 2rem;
+}
+
+/* Center the headings*/
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #001547;
+}
+#about-section {
+  display: flex;
+  align-items: center;
+}
+#about-section img {
+  margin-right: 20px;
+}
+.about img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-right: 20px;
+  float: left;
+}
+
+/* change the background color of the "main" section to #f2f2f2 */
+#main {
+    /* background-color:#001547; */
+    color: rgb(0, 50, 84);
+    padding: 2rem;
+}
+#main h1{
+  /* background-color:#001547; */
+  color:burlywood;
+  padding: 2rem;
+}
+
+#main .nav-tabs .nav-link {
+    font-size: 1.5rem;
+    color: #03255e;
+}
+
+#main .tab-content {
+    padding: 2rem;
+}
+
+#main .tab-content form {
+    text-align: center;
+}
+
+#main .tab-content input[type="file"] {
+    font-size: 1.5rem;
+}
+
+#main .tab-content button {
+    background-color: #0b4978;
+    border-color: #0b4978;
+}
+
+#main .tab-content button:hover {
+    background-color: #03255e;
+    border-color: #03255e;
+}
+
+
+/* Change the background color and text color of the "Contact" section to #f2f2f2 */
+#contact {
+  color: #001547;
+}
+
+/* Change the background color of elements with the bg-dark class to #f2f2f2 */
+.bg-dark {
+  background-color: #2b6777;
+}
+
+/* Change the color of elements with the senti-text class to #2b6777 */
+.senti-text {
+    color: burlywood;
+}
+/* Reduce the padding and margin of the "Contact" section */
+#contact {
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* Center the "Contact" section heading */
+.section-title {
+  text-align: center;
+}
+
+/* Add some margin to the "Contact" section heading */
+.section-title {
+  margin-bottom: 1rem;
+}
+
+/* Add some margin and padding to the "Contact" section items */
+.contact-item {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+/* left align the icons within the "Contact" section items */
+.icon {
+  float: left;
+}
+
+/*  move the contact info to the right of the icons */
+.contact-info {
+  margin-left: 1rem;
+}
+
+/* Change the font color of the "Contact" section items to #2b6777 */
+.contact-item h5 {
+  color: #2b6777;
+}
+
+/* Change the font color of the "Contact" section items to #52ab98 */
+.contact-item p {
+  color: #001547;
+}
+
+/* Change the background color of the "Contact" section to #fff */
+
+.contact-items {
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-right: 2rem;
+}
+/* Add text-align: center to the nav-tabs class */
+.nav-tabs {
+  text-align: center;
+}
+
+/* Add justify-content: center to the nav-item class */
+.nav-item {
+  justify-content: center;
+}
+
+/* Add margin: 0 auto to the form class */
+form {
+  margin: 0 auto;
+}
+
+/* Add text-align: center to the form-group class */
+.form-group {
+  text-align: center;
+}
+
+/* Add margin-top: 1rem to the form-group class */
+.form-group {
+  margin-top: 1rem;
+}
+
+/* Add margin: 0 auto to the button class */
+button {
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .about-image {
+      width: 100%;
+      float: none; /* Remove the float */
+  }
+  .about-text {
+      width: 100%;
+      float: none; /* Remove the float */
+      text-align: center; /* Center the text */
+  }
+}
+.animated-heading{
+  color:rgb(24, 137, 198);
+}
+.animated-heading::before{
+    content: '';
+    animation: animate infinite 6s;
+}
+@keyframes animate {
+    0%{
+      content: "Emotion";
+    }
+    25%{
+      content: "Mood";
+    }
+    50%{
+      content:"Attitude";
+    }
+    75%{
+      content:"Sentiment";
+    }
+    100%{
+      content:"Feeling";
+    }
+  
+}
+.social-icons a {
+  position: relative;
+  font-size: 1.5rem;
+  margin: 10px;
+  color: #03255e;
+}
+
+@keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+.social-icons i:hover{
+  animation: bounce 0.5s ease-in-out;
+}
+
+.timeline-container {
+  position: relative;
+  padding: 0;
+  margin: 50px 0;
+}
+
+.timeline-block {
+  position: relative;
+  width: 100%;
+  padding: 0 0 20px;
+}
+
+.timeline-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  background: #03255e;
+  color: #fff;
+}
+
+.timeline-content {
+  position: relative;
+  margin-left: 70px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #999;
+}
+
+.timeline-block:before {
+  position: absolute;
+  content: "";
+  width: 6px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: #03255e;
+  }
+  
+  .timeline-block:nth-of-type(even) .timeline-content {
+  margin-left: auto;
+  margin-right: 70px;
+  }
+  
+  .timeline-block:nth-of-type(even) .timeline-icon {
+  left: auto;
+  right: 0;
+  }
+  
+  .timeline-block:nth-of-type(even):before {
+  left: auto;
+  right: 50%;
+  }
+  .timeline-icon {
+    animation: icon-animation 0.3s ease-in-out;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+  
+  .timeline-block:hover .timeline-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+  
+  @keyframes icon-animation {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+  .timeline-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0 50px; /* Add space between the edge of the screen and the icons */
+  }
+  
+  .timeline-block {
+    width: 50%;
+    margin-bottom: 50px; /* Add space between the timeline items */
+    align-self: flex-start; /* align timeline-block to the start edge */
+  }
+  
+  .timeline-block:nth-of-type(odd) {
+    /* left timelines */
+    align-self: flex-start; /* align left timelines to the start edge */
+  }
+  
+  .timeline-block:nth-of-type(even) {
+    /* right timelines */
+    align-self: flex-end; /* align right timelines to the end edge */
+  }
+  
+  .timeline-icon {
+    margin-right: 20px;
+  }
+  
+  .timeline-content {
+    align-self: center;
+  }
+  
+
+
+
+
+
+
+
+
+
