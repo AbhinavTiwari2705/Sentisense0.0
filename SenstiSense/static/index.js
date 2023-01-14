@@ -32,5 +32,5 @@ fileInput.addEventListener('change', e => {
   const reader = new FileReader();
   reader.onload = event => {
     // do something with the file contents
-    const contents = event.target.result;}
-  })
+    const contents = event.target.result;
+  };

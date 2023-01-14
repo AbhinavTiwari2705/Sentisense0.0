@@ -1,221 +1,371 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
   <title>SentiSense</title>
   <!-- link to Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <!-- link to custom CSS file -->
-  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <!-- navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">SentiSense</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <!-- "Home" section -->
-          <li class="nav-item active">
-            <a class="nav-link" href="#home">Home</a>
-          </li>
-          <!-- "About" section -->
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <!-- "Contact" section -->
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-          <!-- "Login" section -->
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- Modal Wrapper -->
-<div class="modal-wrapper">
-        <!-- Modal -->
-        <!-- Login Modal -->
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Log in</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+  <nav class="navbar navbar-expand-lg fixed-navbar sticky-top fs-5 ">
+    <a class="navbar-brand" href="#"><img src="static/My project-1.png" width="40" height="40" alt="logo"
+        id="logo">SentiSense</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <!-- "Home" section -->
+        <li class="nav-item active">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <!-- "About" section -->
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <!-- "Contact" section -->
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        <!-- "Login" section -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Modal Wrapper -->
+  <div class="modal-wrapper">
+    <!-- Modal -->
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Log in</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- login form -->
+            <form>
+              <div class="form-group">
+                <label for="loginUsername">Username</label>
+                <input type="text" class="form-control" id="loginUsername" placeholder="Enter username">
               </div>
-              <div class="modal-body">
-                <!-- login form -->
-                <form>
-                  <div class="form-group">
-                    <label for="loginUsername">Username</label>
-                    <input type="text" class="form-control" id="loginUsername" placeholder="Enter username">
-                  </div>
-                  <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
-                  </div>
-                  <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="submit" class="btn btn-primary">Log in</button>
-      <br>
-      <p>Don't have an account? <a href="#" data-toggle="modal" data-target="#signupModal">Sign up</a></p>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Log in</button>
+                <br>
+                <p>Don't have an account? <a href="#" data-toggle="modal" data-target="#signupModal">Sign up</a></p>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
-                </form>
-              </div>
-            </div>
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signupModalLabel">Sign up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </div>
-
-        <!-- Signup Modal -->
-      <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="signupModalLabel">Sign up</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- signup form -->
-              <form>
-                <div class="form-group">
-                  <label for="signupUsername">Username</label>
-                  <input type="text" class="form-control" id="signupUsername" placeholder="Enter username">
-                </div>
-                <div class="form-group">
-                  <label for="signupEmail">Email</label>
-                  <input type="email" class="form-control" id="signupEmail" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="signupPassword">Password</label>
-                  <input type="password" class="form-control" id="signupPassword" placeholder="Enter password">
-                </div>
-                <div class="form-group">
-                  <label for="signupPasswordConfirm">Confirm Password</label>
-                  <input type="password" class="form-control" id="signupPasswordConfirm" placeholder="Confirm password">
-                </div>
-                <button type="submit" class="btn btn-primary">Sign up</button>
-              </form>
-            </div>
+          <div class="modal-body">
+            <!-- signup form -->
+            <form>
+              <div class="form-group">
+                <label for="signupUsername">Username</label>
+                <input type="text" class="form-control" id="signupUsername" placeholder="Enter username">
+              </div>
+              <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" class="form-control" id="signupEmail" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" class="form-control" id="signupPassword" placeholder="Enter password">
+              </div>
+              <div class="form-group">
+                <label for="signupPasswordConfirm">Confirm Password</label>
+                <input type="password" class="form-control" id="signupPasswordConfirm" placeholder="Confirm password">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign up</button>
+            </form>
           </div>
         </div>
       </div>
+    </div>
   </div>
 
   <!-- "Home" section -->
-  <div class="container-fluid bg-light py-5" id = "home">
-    <div class="container text-dark">
-      <h1 class="display-4">Welcome to the <em style = "color: #1abc9c">SentiSense</em></h1>
-      <p class="lead">SentiSense is a sentiment analysis tool which ses machine learning algorithms to classify the sentiment of text data</p>
-        <blockquote cite="http://">
-          <p>"Our project aims to develop a sentiment analysis tool that can help mental
-health professionals more effectively analyze and understand the sentiment
-of their clients, enabling them to provide better care and support."</p>
-        </blockquote>
-      <!-- "Try!" button -->
-      <a href="#main" class="btn btn-primary btn-lg">Try!</a>
+  <div class="container-fluid py-5 d-flex " id="home">
+    <div class="text-justify w-50 align-content-around animate__animated animate__fadeInLeft">
+      <h1>Unlock the <span class="animated-heading"></span>
+        <br>
+        <small>with</small>
+        <br>
+        <span class="senti-text" style="font-size:3em">SentiSense</span>
+      </h1>
+      <p class="lead">With SentiSense, you can easily analyze the sentiment of any text or voice recording, giving
+        you valuable insights into how people feel about your brand, product, or service.</p>
+
+      <div class="d-flex justify-content-lg-start">
+        <a href="#text" class="btn btn-primary btn-lg mx-2">Try with text <i class="fa fa-file-text-o"></i> </a>
+        <a href="#audio" class="btn btn-outline-primary btn-lg mx-2">Try with Audio <i class="fa fa-microphone"></i></a>
+      </div>
+    </div>
+    <div class="w-50 animate__animated animate__fadeInUp">
+      <img src="static/homerobo.png" alt="image" class="static/img-fluid" style="transform: scaleX(-1);">
     </div>
   </div>
 
+
+
+  <!-- " About" section -->
   <!-- "About" section -->
-  <!-- "About" section -->
-  <div class="container-fluid bg-dark py-5 text-light about-section" id = "about">
+  <section id="about">
     <div class="container">
-      <h2 class="text-green">About</h2>
-      <p class = "text-light">Sentiment analysis is the process of using natural
-        language processing and machine learning techniques to identify and extract
-        subjective information from text data. In this process we identify and extract
-        subjective information from text data, such as the sentiment expressed in a
-        piece of text (e.g. positive, negative, neutral).
-</p>
+      <div class="row">
+        <div class="col-md-6 ">
+          <img src="static/rob.png" class="img-fluid rounded about-img" alt="About Image">
+        </div>
+        <div class="col-md-6">
+
+          <h2>About SentiSense</h2>
+          <p>SentiSense is a sentiment analysis tool that uses natural language processing to determine the
+            sentiment of
+            text or speech. Our tool can be used for various applications such as social media monitoring, customer
+            feedback analysis, and
+            more. With SentiSense, you can quickly and accurately gauge the sentiment of your audience and make
+            data-driven decisions.</p>
+          <p>Our user-friendly interface allows you to upload text or audio files, or simply type or speak your text
+            directly into the platform. Once the analysis is complete, SentiSense will provide a detailed report
+            showing
+            the overall sentiment,
+            as well as the sentiment of individual phrases or sentences within the text. </p>
+          <p>Additionally SentiSense uses machine learning algorithms to provide insights on what factors are
+            driving
+            positive or negative sentiment. This allows you to identify areas of improvement and tailor your
+            strategies
+            accordingly. </p>
+          <p> Give it a try and see the results for yourself! </p>
+        </div>
+
+      </div>
     </div>
-  </div>
+  </section>
+
 
 
   <!-- "Main" section -->
   <div class="container-fluid py-5" id="main">
     <div class="container">
-      <h2 class="text-dark mb-5">Enter your text below:</h2>
-      <form >
-  <!-- file input field -->
-  <div class="form-group">
-    <input type="file" accept=".txt" id="input-file" placeholder="Choose text file">
-  </div>
-  <!-- submit button -->
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+      <h1 class="text-center" style="font-size: 5em;">Sentiment Analysis</h1>
+      <p class="text-center">Sentiment Analysis is a powerful tool that helps you understand what people are saying
+        about your brand, product, or service. It uses natural language processing and machine learning techniques
+        to
+        identify the emotional tone of text or speech and provide you with a detailed breakdown of positive,
+        negative,
+        and neutral sentiment. With SentiSense, you can easily analyze the sentiment of any text or voice recording,
+        giving you valuable insights into how people feel about your brand, product, or service.</p>
+      <div class="row">
+        <div class="col-md-7">
+          <ul class="nav nav-tabs" id="inputTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="text-tab" data-toggle="tab" href="#text" role="tab" aria-controls="text"
+                aria-selected="true">Text <i class="fa fa-file-text-o" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="audio-tab" data-toggle="tab" href="#audio" role="tab" aria-controls="audio"
+                aria-selected="false">Audio <i class="fa fa-microphone" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content" id="inputTabContent">
+            <div class="tab-pane fade show active" id="text" role="tabpanel" aria-labelledby="text-tab">
+              <p>In this tab you can submit text for sentiment analysis. You can either copy and paste text directly
+                into
+                the text area or upload a text file.</p>
+              <form>
+                <div class="form-group">
+                  <label for="input-file">Choose text file</label>
+                  <input type="file" accept=".txt" id="input-file" placeholder="Choose text file">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="audio" role="tabpanel" aria-labelledby="audio-tab">
+              <p>In this tab you can record audio for sentiment analysis. Press the record button to start
+                recording,
+                the
+                pause button to pause recording, and the stop button to stop recording. Once you have finished
+                recording,
+                press the submit button to submit the audio for analysis.</p>
+              <form>
+                <div class="form-group">
+                  <button type="button" class="btn btn-secondary" id="record-button">Record <i class="fa fa-circle"
+                      aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-secondary" id="pause-button" disabled>Pause <i
+                      class="fa fa-pause"></i>
+                  </button>
+                  <button type="button" class="btn btn-secondary" id="stop-button" disabled>Stop <i class="fa fa-stop"
+                      aria-hidden="true"></i>
+                  </button>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <img src="static/mainsec.png" class="img-fluid" alt="image" style="transform: scaleX(-1);">
+        </div>
+      </div>
+    </div>
 
+  </div>
+
+
+  <div class="timeline-container">
+    <div class="timeline-block">
+      <div class="timeline-icon">
+        <i class="fa fa-bell"></i>
+      </div>
+      <div class="timeline-content">
+        <h3>Emotional Analysis for Therapy</h3>
+        <p>SentiSense is an essential tool for mental health professionals to <br>analyze and understand the sentiment
+          of
+          their clients, providing better care and support for patients.</p>
+      </div>
+    </div>
+    <div class="timeline-block">
+      <div class="timeline-icon">
+        <i class="fa fa-comments"></i>
+      </div>
+      <div class="timeline-content">
+        <h3>Customer Feedback Analysis</h3>
+        <p>SentiSense can be used to analyze customer feedback and improve customer satisfaction. With SentiSense,
+          companies can easily identify the sentiment of customer feedback.</p>
+      </div>
+    </div>
+    <div class="timeline-block">
+      <div class="timeline-icon">
+        <i class="fa fa-twitter"></i>
+      </div>
+      <div class="timeline-content">
+        <h3>Social Media Opinion Monitoring</h3>
+        <p>SentiSense can be used to monitor and analyze social media conversations, hashtags, and keywords in
+          real-time. <br>With SentiSense, organizations can gain insights into public opinion on their brand, products,
+          and
+          services. SentiSense allows organizations to track brand mentions, customer sentiment, and identify
+          influencers and advocates.</p>
+      </div>
+    </div>
+    <div class="timeline-block">
+      <div class="timeline-icon">
+        <i class="fa fa-microphone"></i>
+      </div>
+      <div class="timeline-content align-content-end">
+        <h3>Speech and Sentiment Analysis</h3>
+        <p>SentiSense can be used to analyze speeches, interviews, podcasts, and other forms of audio content. With
+          SentiSense, organizations can gain insights into the tone, sentiment, and emotions expressed in the audio.
+          SentiSense can help organizations to identify key points, summarize the main ideas, and understand the
+          opinion of the speaker.
+        </p>
+      </div>
     </div>
   </div>
+
+
   <!-- "Contact" section -->
-  <div id="contact" class="container mt-5 container-fluid bg-dark py-5 text-light contact-section">
-    <div class="row">
-      <!-- project supervisor -->
-      <div class="col-md-4 mx-auto">
-        <div class="card mb-3 border-0 h-100">
-          <img src="supervisor.jpg" alt="Photo of Supervisor" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Project Supervisor</h5>
-            <p class="card-text">Name</p>
-            <p class="card-text">Email</p>
+  <section id="contact">
+    <div class="contact container  py-5 text-dark">
+      <div>
+        <h1 class="section-title">Contact <span>info</span></h1>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
+          <div class="contact-info">
+            <h5>Phone</h5>
+            <p>+91 94 3520 XXXX</p>
+            <p>+91 23 1231 XXXX</p>
           </div>
         </div>
-      </div>
-      <!-- reviewer -->
-      <div class="col-md-4 mx-auto">
-        <div class="card mb-3 border-0 h-100">
-          <img src="reviewer.jpg" alt="Photo of Reviewer" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Reviewer</h5>
-            <p class="card-text">Name</p>
-            <p class="card-text">Email</p>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
+          <div class="contact-info">
+            <h5>Email</h5>
+            <p>info@gmail.com</p>
+            <p>abcd@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" /></div>
+          <div class="contact-info">
+            <h5>Address</h5>
+            <p>VIT BHOPAL</p>
           </div>
         </div>
       </div>
     </div>
-    <!-- team members -->
-    <h3>Team Members</h3>
-    <div class="row">
-      <!-- team member 1 -->
-      <div class="col-md-4">
-        <p>Name 1: Member 1</p>
-      </div>
-      <!-- team member 2 -->
-      <div class="col-md-4">
-        <p>Name 2: Member 2</p>
-      </div>
-      <!-- team member 3 -->
-      <div class="col-md-4">
-        <p>Name 3: Member 3</p>
-      </div>
-      <!-- team member 4 -->
-      <div class="col-md-4">
-        <p>Name 4: Member 4</p>
-      </div>
-      <!-- team member 5 -->
-      <div class="col-md-4">
-        <p>Name 4: Member 5</p>
+  </section>
+
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="social-icons text-center mx-auto">
+            <a href="#" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+            <a href="#" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+            <a href="#" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
+            <a href="#" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+          </div>
+          <p class="text-center">Copyright ©2022 SentiSense. All rights reserved.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </footer>
 
 
 
 
-    <!-- link to jQuery and Bootstrap JavaScript -->
-    <script type="text/javascript" src ="static/index.js">
 
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
-  </html>
+  <!-- link to jQuery and Bootstrap JavaScript -->
+  <script type="text/javascript" src="static/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"> </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 
+</html>
