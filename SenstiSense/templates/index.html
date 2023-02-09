@@ -22,6 +22,8 @@
 
 <body>
   <!-- navigation bar -->
+
+
   <nav class="navbar navbar-expand-lg fixed-navbar sticky-top fs-5 ">
     <a class="navbar-brand" href="#"><img src="static/My project-1.png" width="40" height="40" alt="logo"
         id="logo">SentiSense</a>
@@ -30,7 +32,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
+      <ul class="navbar-nav ml-auto">
         <!-- "Home" section -->
         <li class="nav-item active">
           <a class="nav-link" href="#home">Home</a>
@@ -44,9 +46,32 @@
           <a class="nav-link" href="#contact">Contact</a>
         </li>
         <!-- "Login" section -->
+        {% if user.is_authenticated %}
+         <li class="nav-item">
+          <a class="nav-link" href="logout"  >Logout</a>
+        </li>
+                
+        
+        {% else %}
         <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
         </li>
+        
+
+        {% endif %}
+
+
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">  {% if user.is_authenticated %}
+          <li>Hello! {{user.username}}</li>
+
+          {% endif %}</a>
+        </li>
+        
+
+
       </ul>
     </div>
   </nav>
@@ -66,20 +91,23 @@
           </div>
           <div class="modal-body">
             <!-- login form -->
-            <form>
+            <form method='POST' action='/login'>
+              {% csrf_token %}
+
+
               <div class="form-group">
                 <label for="loginUsername">Username</label>
-                <input type="text" class="form-control" id="loginUsername" placeholder="Enter username">
+                <input type="text" class="form-control" id="loginUsername" placeholder="Enter username" name='username'>
               </div>
               <div class="form-group">
                 <label for="loginPassword">Password</label>
-                <input type="password" class="form-control" id="loginPassword" placeholder="Enter password">
+                <input type="password" class="form-control" id="loginPassword" placeholder="Enter password" name='password'>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Log in</button>
                 <br>
-                <p>Don't have an account? <a href="#" data-toggle="modal" data-target="#signupModal">Sign up</a></p>
+                <p>Don't have an account? <a href="/signup" data-toggle="modal" data-target="#signupModal">Sign up</a></p>
               </div>
 
             </form>
@@ -101,22 +129,23 @@
           </div>
           <div class="modal-body">
             <!-- signup form -->
-            <form>
+            <form method="post" action="/signup">
+              {% csrf_token %}
               <div class="form-group">
                 <label for="signupUsername">Username</label>
-                <input type="text" class="form-control" id="signupUsername" placeholder="Enter username">
+                <input type="text" class="form-control" id="signupUsername" placeholder="Enter username" name='newusername'>
               </div>
               <div class="form-group">
                 <label for="signupEmail">Email</label>
-                <input type="email" class="form-control" id="signupEmail" placeholder="Enter email">
+                <input type="email" class="form-control" id="signupEmail" placeholder="Enter email" name='newusername_email'>
               </div>
               <div class="form-group">
                 <label for="signupPassword">Password</label>
-                <input type="password" class="form-control" id="signupPassword" placeholder="Enter password">
+                <input type="password" class="form-control" id="signupPassword" placeholder="Enter password" name='newusername_password1'>
               </div>
               <div class="form-group">
                 <label for="signupPasswordConfirm">Confirm Password</label>
-                <input type="password" class="form-control" id="signupPasswordConfirm" placeholder="Confirm password">
+                <input type="password" class="form-control" id="signupPasswordConfirm" placeholder="Confirm password" name='newusername_password2'>
               </div>
               <button type="submit" class="btn btn-primary">Sign up</button>
             </form>
@@ -125,6 +154,21 @@
       </div>
     </div>
   </div>
+
+      <div class="alert alert-success alert-dismissible fade show sticky-top fs-5" role="alert">
+      {% if messages %}
+                 {% for message in messages %}
+                    <strong>{{message}}</strong>
+                 {% endfor %}
+              {% endif %} 
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+
+{% block 404 %}
+
+
 
   <!-- "Home" section -->
   <div class="container-fluid py-5 d-flex " id="home">
@@ -148,6 +192,17 @@
     </div>
   </div>
 
+
+
+
+
+
+
+
+    {% block base %}
+
+
+    {% endblock base %}
 
 
   <!-- " About" section -->
@@ -216,10 +271,16 @@
               <p>In this tab you can submit text for sentiment analysis. You can either copy and paste text directly
                 into
                 the text area or upload a text file.</p>
-              <form>
+              <form method='POST' action='/text'>
+                
                 <div class="form-group">
-                  <label for="input-file">Choose text file</label>
-                  <input type="file" accept=".txt" id="input-file" placeholder="Choose text file">
+                  <label for="input-file">Enter your text </label>
+                  {% csrf_token %}
+                  <textarea name="text" rows=5 colspan=50>
+
+
+                  </textarea>
+                  {% comment %} <input type="text-area"  id="input-file" placeholder="here!" name="text"> {% endcomment %}
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
@@ -245,12 +306,24 @@
                 </div>
                 <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
               </form>
+            
+                <h3>Comming Soon!</h3>
+                <h4>stay tuned!</h4>
+              
+
+              
+
+
             </div>
           </div>
         </div>
+        {% block img %}
+        
+        
         <div class="col-md-5">
           <img src="static/mainsec.png" class="img-fluid" alt="image" style="transform: scaleX(-1);">
         </div>
+        {% endblock img %}
       </div>
     </div>
 
@@ -360,6 +433,8 @@
 
 
 
+  {% endblock 404 %}
+
 
 
   <!-- link to jQuery and Bootstrap JavaScript -->
@@ -367,5 +442,9 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"> </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
+
+
+
 
 </html>
