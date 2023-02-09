@@ -20,8 +20,15 @@ from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
+handler404 = views.custom_404
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='HOME'),
+    path('text',views.text,name='text'),
+    path('login',views.login_user,name='login'),
+    path('signup',views.signup,name='signup'),
+    path('logout',views.logout_user,name='logout')
+ 
 ]

@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+
+{% block img %}
+
+
+{% if is_joy %}
+    <div class="col-md-5">
+          <img src="static/joy.png" class="img-fluid" alt="joy" style="transform: scaleX(-1);">
+
+      <center>    <h3>joy</h3></center>
+          
+        </div>
+{% elif is_anger %}
+        <div class="col-md-5">
+          <img src="static/anger.png" class="img-fluid" alt="anger" style="transform: scaleX(-1);">
+        <center>  <h3>Anger</h3></center>
+        </div>
+
+{% elif is_neutral %}
+        <div class="col-md-5">
+          <img src="static/neutral.png" class="img-fluid" alt="neutral" style="transform: scaleX(-1);">
+          <center><h3>Neutral</h3></center>
+        </div>
+
+{% elif is_sadness %}
+        <div class="col-md-5">
+          <img src="static/sadness.png" class="img-fluid" alt="sadness" style="transform: scaleX(-1);">
+          <center><h3>Sadness</h3></center>
+        </div>
+
+{% elif is_fear %}
+        <div class="col-md-5">
+          <img src="static/fear.png" class="img-fluid" alt="fear" style="transform: scaleX(-1);">
+       <center>   <h3>Fear</h3></center>
+        </div>
+
+{% elif is_surprise %}
+        <div class="col-md-5">
+          <img src="static/surprise.png" class="img-fluid" alt="fear" style="transform: scaleX(-1);">
+          <<center>h3>Surprise</h3></center>
+        </div>
+
+
+{% elif random_fact %}
+
+<div class="col-md-5">
+    <h3>Random Fact About<center> Sentisense</h3></center>
+   <p>{{ random_fact }}</p>
+
+
+
+{% else %}
+
+    <a href='404'>
+
+
+
+{% endif %}
+
+
+
+
+
+{% endblock %}
